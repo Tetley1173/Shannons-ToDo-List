@@ -12,5 +12,9 @@ namespace Shannons_ToDo_List
             lblHelloLabel.Text = "Hello User";
         }
 
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
