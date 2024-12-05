@@ -30,20 +30,20 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            richTextBox5 = new RichTextBox();
-            richTextBox4 = new RichTextBox();
-            richTextBox3 = new RichTextBox();
+            flowLayoutPanelTab1 = new FlowLayoutPanel();
             richTextBox2 = new RichTextBox();
             richTextBox1 = new RichTextBox();
+            richTextBox3 = new RichTextBox();
+            richTextBox4 = new RichTextBox();
+            richTextBox5 = new RichTextBox();
             vScrollBar1 = new VScrollBar();
             tabPage2 = new TabPage();
             btnHelloButton = new Button();
             lblHelloLabel = new Label();
-            flowLayoutPanelTab1 = new FlowLayoutPanel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
             flowLayoutPanelTab1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -68,29 +68,18 @@
             tabPage1.Text = "List 1";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // richTextBox5
+            // flowLayoutPanelTab1
             // 
-            richTextBox5.Location = new Point(3, 383);
-            richTextBox5.Name = "richTextBox5";
-            richTextBox5.Size = new Size(422, 89);
-            richTextBox5.TabIndex = 6;
-            richTextBox5.Text = "";
-            // 
-            // richTextBox4
-            // 
-            richTextBox4.Location = new Point(3, 288);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(422, 89);
-            richTextBox4.TabIndex = 5;
-            richTextBox4.Text = "";
-            // 
-            // richTextBox3
-            // 
-            richTextBox3.Location = new Point(3, 193);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(422, 89);
-            richTextBox3.TabIndex = 4;
-            richTextBox3.Text = "";
+            flowLayoutPanelTab1.Controls.Add(richTextBox2);
+            flowLayoutPanelTab1.Controls.Add(richTextBox1);
+            flowLayoutPanelTab1.Controls.Add(richTextBox3);
+            flowLayoutPanelTab1.Controls.Add(richTextBox4);
+            flowLayoutPanelTab1.Controls.Add(richTextBox5);
+            flowLayoutPanelTab1.Location = new Point(8, 6);
+            flowLayoutPanelTab1.Name = "flowLayoutPanelTab1";
+            flowLayoutPanelTab1.Size = new Size(420, 402);
+            flowLayoutPanelTab1.TabIndex = 7;
+            flowLayoutPanelTab1.Paint += flowLayoutPanel1_Paint;
             // 
             // richTextBox2
             // 
@@ -108,12 +97,37 @@
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "";
             // 
+            // richTextBox3
+            // 
+            richTextBox3.Location = new Point(3, 193);
+            richTextBox3.Name = "richTextBox3";
+            richTextBox3.Size = new Size(422, 89);
+            richTextBox3.TabIndex = 4;
+            richTextBox3.Text = "";
+            // 
+            // richTextBox4
+            // 
+            richTextBox4.Location = new Point(3, 288);
+            richTextBox4.Name = "richTextBox4";
+            richTextBox4.Size = new Size(422, 89);
+            richTextBox4.TabIndex = 5;
+            richTextBox4.Text = "";
+            // 
+            // richTextBox5
+            // 
+            richTextBox5.Location = new Point(3, 383);
+            richTextBox5.Name = "richTextBox5";
+            richTextBox5.Size = new Size(422, 89);
+            richTextBox5.TabIndex = 6;
+            richTextBox5.Text = "";
+            // 
             // vScrollBar1
             // 
             vScrollBar1.Location = new Point(431, 0);
             vScrollBar1.Name = "vScrollBar1";
             vScrollBar1.Size = new Size(26, 416);
             vScrollBar1.TabIndex = 0;
+            vScrollBar1.Scroll += vScrollBar1_Scroll;
             // 
             // tabPage2
             // 
@@ -146,19 +160,6 @@
             lblHelloLabel.TabIndex = 2;
             lblHelloLabel.Text = "Hello World";
             // 
-            // flowLayoutPanelTab1
-            // 
-            flowLayoutPanelTab1.Controls.Add(richTextBox2);
-            flowLayoutPanelTab1.Controls.Add(richTextBox1);
-            flowLayoutPanelTab1.Controls.Add(richTextBox3);
-            flowLayoutPanelTab1.Controls.Add(richTextBox4);
-            flowLayoutPanelTab1.Controls.Add(richTextBox5);
-            flowLayoutPanelTab1.Location = new Point(8, 6);
-            flowLayoutPanelTab1.Name = "flowLayoutPanelTab1";
-            flowLayoutPanelTab1.Size = new Size(420, 402);
-            flowLayoutPanelTab1.TabIndex = 7;
-            flowLayoutPanelTab1.Paint += flowLayoutPanel1_Paint;
-            // 
             // ToDoForm1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -169,9 +170,9 @@
             Text = "Todo List";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            flowLayoutPanelTab1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            flowLayoutPanelTab1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
