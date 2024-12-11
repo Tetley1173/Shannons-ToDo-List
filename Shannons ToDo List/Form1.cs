@@ -17,5 +17,16 @@ namespace Shannons_ToDo_List
         {
 
         }
+
+        private void buttonAddListTab1_Click(object sender, EventArgs e)
+        {
+            //Can likely call a class for this line that returns a block of UI objects.
+            flowLayoutPanelTab1.Controls.Add(new RichTextBox() { Text = "Some description."});
+        }
+
+        private void buttonRemoveListTab1_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanelTab1.Controls.Clear();
+        }
     }
 }

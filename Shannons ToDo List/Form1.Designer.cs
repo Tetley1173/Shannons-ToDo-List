@@ -30,12 +30,10 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            buttonRemoveListTab1 = new Button();
+            buttonAddListTab1 = new Button();
             flowLayoutPanelTab1 = new FlowLayoutPanel();
             richTextBox2 = new RichTextBox();
-            richTextBox1 = new RichTextBox();
-            richTextBox3 = new RichTextBox();
-            richTextBox6 = new RichTextBox();
-            richTextBox5 = new RichTextBox();
             tabPage2 = new TabPage();
             btnHelloButton = new Button();
             lblHelloLabel = new Label();
@@ -57,8 +55,9 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(buttonRemoveListTab1);
+            tabPage1.Controls.Add(buttonAddListTab1);
             tabPage1.Controls.Add(flowLayoutPanelTab1);
-            tabPage1.Controls.Add(richTextBox5);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -67,18 +66,35 @@
             tabPage1.Text = "List 1";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // buttonRemoveListTab1
+            // 
+            buttonRemoveListTab1.Location = new Point(118, 31);
+            buttonRemoveListTab1.Name = "buttonRemoveListTab1";
+            buttonRemoveListTab1.Size = new Size(119, 29);
+            buttonRemoveListTab1.TabIndex = 9;
+            buttonRemoveListTab1.Text = "Remove Item";
+            buttonRemoveListTab1.UseVisualStyleBackColor = true;
+            buttonRemoveListTab1.Click += buttonRemoveListTab1_Click;
+            // 
+            // buttonAddListTab1
+            // 
+            buttonAddListTab1.Location = new Point(18, 31);
+            buttonAddListTab1.Name = "buttonAddListTab1";
+            buttonAddListTab1.Size = new Size(94, 29);
+            buttonAddListTab1.TabIndex = 8;
+            buttonAddListTab1.Text = "Create Item";
+            buttonAddListTab1.UseVisualStyleBackColor = true;
+            buttonAddListTab1.Click += buttonAddListTab1_Click;
+            // 
             // flowLayoutPanelTab1
             // 
             flowLayoutPanelTab1.AutoScroll = true;
             flowLayoutPanelTab1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanelTab1.Controls.Add(richTextBox2);
-            flowLayoutPanelTab1.Controls.Add(richTextBox1);
-            flowLayoutPanelTab1.Controls.Add(richTextBox3);
-            flowLayoutPanelTab1.Controls.Add(richTextBox6);
             flowLayoutPanelTab1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanelTab1.Location = new Point(8, 6);
+            flowLayoutPanelTab1.Location = new Point(0, 92);
             flowLayoutPanelTab1.Name = "flowLayoutPanelTab1";
-            flowLayoutPanelTab1.Size = new Size(446, 414);
+            flowLayoutPanelTab1.Size = new Size(457, 328);
             flowLayoutPanelTab1.TabIndex = 7;
             flowLayoutPanelTab1.WrapContents = false;
             flowLayoutPanelTab1.Paint += flowLayoutPanel1_Paint;
@@ -87,41 +103,9 @@
             // 
             richTextBox2.Location = new Point(3, 3);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(324, 89);
+            richTextBox2.Size = new Size(425, 89);
             richTextBox2.TabIndex = 3;
             richTextBox2.Text = "";
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(3, 98);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(417, 89);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
-            // 
-            // richTextBox3
-            // 
-            richTextBox3.Location = new Point(3, 193);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(417, 89);
-            richTextBox3.TabIndex = 4;
-            richTextBox3.Text = "";
-            // 
-            // richTextBox6
-            // 
-            richTextBox6.Location = new Point(3, 288);
-            richTextBox6.Name = "richTextBox6";
-            richTextBox6.Size = new Size(417, 79);
-            richTextBox6.TabIndex = 6;
-            richTextBox6.Text = "";
-            // 
-            // richTextBox5
-            // 
-            richTextBox5.Location = new Point(11, 379);
-            richTextBox5.Name = "richTextBox5";
-            richTextBox5.Size = new Size(417, 89);
-            richTextBox5.TabIndex = 6;
-            richTextBox5.Text = "";
             // 
             // tabPage2
             // 
@@ -176,11 +160,9 @@
         private TabPage tabPage2;
         private Button btnHelloButton;
         private Label lblHelloLabel;
-        private RichTextBox richTextBox3;
         private RichTextBox richTextBox2;
-        private RichTextBox richTextBox1;
         private FlowLayoutPanel flowLayoutPanelTab1;
-        private RichTextBox richTextBox5;
-        private RichTextBox richTextBox6;
+        private Button buttonAddListTab1;
+        private Button buttonRemoveListTab1;
     }
 }
