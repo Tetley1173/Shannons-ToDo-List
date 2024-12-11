@@ -34,9 +34,8 @@
             richTextBox2 = new RichTextBox();
             richTextBox1 = new RichTextBox();
             richTextBox3 = new RichTextBox();
-            richTextBox4 = new RichTextBox();
+            richTextBox6 = new RichTextBox();
             richTextBox5 = new RichTextBox();
-            vScrollBar1 = new VScrollBar();
             tabPage2 = new TabPage();
             btnHelloButton = new Button();
             lblHelloLabel = new Label();
@@ -59,7 +58,7 @@
             // tabPage1
             // 
             tabPage1.Controls.Add(flowLayoutPanelTab1);
-            tabPage1.Controls.Add(vScrollBar1);
+            tabPage1.Controls.Add(richTextBox5);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -70,15 +69,18 @@
             // 
             // flowLayoutPanelTab1
             // 
+            flowLayoutPanelTab1.AutoScroll = true;
+            flowLayoutPanelTab1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanelTab1.Controls.Add(richTextBox2);
             flowLayoutPanelTab1.Controls.Add(richTextBox1);
             flowLayoutPanelTab1.Controls.Add(richTextBox3);
-            flowLayoutPanelTab1.Controls.Add(richTextBox4);
-            flowLayoutPanelTab1.Controls.Add(richTextBox5);
+            flowLayoutPanelTab1.Controls.Add(richTextBox6);
+            flowLayoutPanelTab1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanelTab1.Location = new Point(8, 6);
             flowLayoutPanelTab1.Name = "flowLayoutPanelTab1";
-            flowLayoutPanelTab1.Size = new Size(420, 402);
+            flowLayoutPanelTab1.Size = new Size(446, 414);
             flowLayoutPanelTab1.TabIndex = 7;
+            flowLayoutPanelTab1.WrapContents = false;
             flowLayoutPanelTab1.Paint += flowLayoutPanel1_Paint;
             // 
             // richTextBox2
@@ -93,7 +95,7 @@
             // 
             richTextBox1.Location = new Point(3, 98);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(422, 89);
+            richTextBox1.Size = new Size(417, 89);
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "";
             // 
@@ -101,33 +103,25 @@
             // 
             richTextBox3.Location = new Point(3, 193);
             richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(422, 89);
+            richTextBox3.Size = new Size(417, 89);
             richTextBox3.TabIndex = 4;
             richTextBox3.Text = "";
             // 
-            // richTextBox4
+            // richTextBox6
             // 
-            richTextBox4.Location = new Point(3, 288);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(422, 89);
-            richTextBox4.TabIndex = 5;
-            richTextBox4.Text = "";
+            richTextBox6.Location = new Point(3, 288);
+            richTextBox6.Name = "richTextBox6";
+            richTextBox6.Size = new Size(417, 79);
+            richTextBox6.TabIndex = 6;
+            richTextBox6.Text = "";
             // 
             // richTextBox5
             // 
-            richTextBox5.Location = new Point(3, 383);
+            richTextBox5.Location = new Point(11, 379);
             richTextBox5.Name = "richTextBox5";
-            richTextBox5.Size = new Size(422, 89);
+            richTextBox5.Size = new Size(417, 89);
             richTextBox5.TabIndex = 6;
             richTextBox5.Text = "";
-            // 
-            // vScrollBar1
-            // 
-            vScrollBar1.Location = new Point(431, 0);
-            vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new Size(26, 416);
-            vScrollBar1.TabIndex = 0;
-            vScrollBar1.Scroll += vScrollBar1_Scroll;
             // 
             // tabPage2
             // 
@@ -182,12 +176,11 @@
         private TabPage tabPage2;
         private Button btnHelloButton;
         private Label lblHelloLabel;
-        private VScrollBar vScrollBar1;
-        private RichTextBox richTextBox5;
-        private RichTextBox richTextBox4;
         private RichTextBox richTextBox3;
         private RichTextBox richTextBox2;
         private RichTextBox richTextBox1;
         private FlowLayoutPanel flowLayoutPanelTab1;
+        private RichTextBox richTextBox5;
+        private RichTextBox richTextBox6;
     }
 }
