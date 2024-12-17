@@ -50,7 +50,7 @@
             tabControl1.Location = new Point(0, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(465, 449);
+            tabControl1.Size = new Size(469, 530);
             tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -61,14 +61,14 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(457, 416);
+            tabPage1.Size = new Size(461, 497);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "List 1";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // buttonRemoveListTab1
             // 
-            buttonRemoveListTab1.Location = new Point(118, 31);
+            buttonRemoveListTab1.Location = new Point(106, 16);
             buttonRemoveListTab1.Name = "buttonRemoveListTab1";
             buttonRemoveListTab1.Size = new Size(119, 29);
             buttonRemoveListTab1.TabIndex = 9;
@@ -78,7 +78,7 @@
             // 
             // buttonAddListTab1
             // 
-            buttonAddListTab1.Location = new Point(18, 31);
+            buttonAddListTab1.Location = new Point(6, 16);
             buttonAddListTab1.Name = "buttonAddListTab1";
             buttonAddListTab1.Size = new Size(94, 29);
             buttonAddListTab1.TabIndex = 8;
@@ -92,9 +92,9 @@
             flowLayoutPanelTab1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanelTab1.Controls.Add(richTextBox2);
             flowLayoutPanelTab1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanelTab1.Location = new Point(0, 92);
+            flowLayoutPanelTab1.Location = new Point(0, 62);
             flowLayoutPanelTab1.Name = "flowLayoutPanelTab1";
-            flowLayoutPanelTab1.Size = new Size(457, 328);
+            flowLayoutPanelTab1.Size = new Size(460, 435);
             flowLayoutPanelTab1.TabIndex = 7;
             flowLayoutPanelTab1.WrapContents = false;
             flowLayoutPanelTab1.Paint += flowLayoutPanel1_Paint;
@@ -103,7 +103,7 @@
             // 
             richTextBox2.Location = new Point(3, 3);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(425, 89);
+            richTextBox2.Size = new Size(425, 15);
             richTextBox2.TabIndex = 3;
             richTextBox2.Text = "";
             // 
@@ -114,7 +114,7 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(457, 416);
+            tabPage2.Size = new Size(461, 497);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Test Tab";
             tabPage2.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(465, 450);
+            ClientSize = new Size(468, 531);
             Controls.Add(tabControl1);
             Name = "ToDoForm1";
             Text = "Todo List";
@@ -160,9 +160,9 @@
         private TabPage tabPage2;
         private Button btnHelloButton;
         private Label lblHelloLabel;
-        private RichTextBox richTextBox2;
         private FlowLayoutPanel flowLayoutPanelTab1;
         private Button buttonAddListTab1;
         private Button buttonRemoveListTab1;
+        private RichTextBox richTextBox2;
     }
 }
