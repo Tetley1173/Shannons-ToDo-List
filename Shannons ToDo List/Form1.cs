@@ -69,7 +69,14 @@ namespace Shannons_ToDo_List
             //Set index
             Index = I;
             //Set text content
-            Text = inText;
+            if (inText == "")
+            {
+                Text = "List item: ";
+            }
+            else
+            {
+                Text = inText;
+            }            
             //Create UI elements
             //Style UI here
             FlowLayoutPanel container = new FlowLayoutPanel(); 
@@ -79,7 +86,7 @@ namespace Shannons_ToDo_List
             container.Size = new System.Drawing.Size(parent.Width - 15, 125);
             parent.Controls.Add(container);
 
-            textBox = new RichTextBox() { Text = "List item: " + I, Height = 90, Width = 430, Parent = container };
+            textBox = new RichTextBox() { Text = Text + I, Height = 90, Width = 430, Parent = container };
             container.Controls.Add(textBox);
             deleteBTN = new Button() { Parent = container, Text = "Delete"};
             container.Controls.Add(deleteBTN);
