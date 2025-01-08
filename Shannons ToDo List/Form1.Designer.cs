@@ -33,13 +33,11 @@
             buttonRemoveListTab1 = new Button();
             buttonAddListTab1 = new Button();
             flowLayoutPanelTab1 = new FlowLayoutPanel();
-            richTextBox2 = new RichTextBox();
             tabPage2 = new TabPage();
             btnHelloButton = new Button();
             lblHelloLabel = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            flowLayoutPanelTab1.SuspendLayout();
             tabPage2.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,7 +88,7 @@
             // 
             flowLayoutPanelTab1.AutoScroll = true;
             flowLayoutPanelTab1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanelTab1.Controls.Add(richTextBox2);
+            flowLayoutPanelTab1.BackColor = Color.IndianRed;
             flowLayoutPanelTab1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanelTab1.Location = new Point(0, 62);
             flowLayoutPanelTab1.Name = "flowLayoutPanelTab1";
@@ -98,14 +96,6 @@
             flowLayoutPanelTab1.TabIndex = 7;
             flowLayoutPanelTab1.WrapContents = false;
             flowLayoutPanelTab1.Paint += flowLayoutPanel1_Paint;
-            // 
-            // richTextBox2
-            // 
-            richTextBox2.Location = new Point(3, 3);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(425, 15);
-            richTextBox2.TabIndex = 3;
-            richTextBox2.Text = "";
             // 
             // tabPage2
             // 
@@ -148,7 +138,6 @@
             Text = "Todo List";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            flowLayoutPanelTab1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ResumeLayout(false);
@@ -160,9 +149,8 @@
         private TabPage tabPage2;
         private Button btnHelloButton;
         private Label lblHelloLabel;
-        private FlowLayoutPanel flowLayoutPanelTab1;
         private Button buttonAddListTab1;
         private Button buttonRemoveListTab1;
-        private RichTextBox richTextBox2;
+        private FlowLayoutPanel flowLayoutPanelTab1;
     }
 }

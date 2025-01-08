@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Shannons_ToDo_List
 {
     public partial class ToDoForm1 : Form
@@ -21,10 +23,9 @@ namespace Shannons_ToDo_List
         int listCount = 0;
         private void buttonAddListTab1_Click(object sender, EventArgs e)
         {
-            //Having this present enables dynamic elements to be added. Removing it makes them invisible, Y tho?????????????
-            // I probably missed a line of code that initialises it that I am not aware of.
-            //flowLayoutPanelTab1.Controls.Add(new RichTextBox() { Text = "List item: " + listCount, Height = 5, Width = 430});
-            flowLayoutPanelTab1.Controls.Add(new ToDoItem(listCount, "", flowLayoutPanelTab1));
+
+            //This adds massive gaps and cuts half of the object out.
+            tabPage1.Controls.Add(new ToDoItem(listCount, "", flowLayoutPanelTab1));
             listCount++;
         }
 
@@ -75,17 +76,21 @@ namespace Shannons_ToDo_List
             //Create UI elements
             //Style UI here
             FlowLayoutPanel container = new FlowLayoutPanel(); 
-            container.Dock = System.Windows.Forms.DockStyle.Fill;
-            //fartherForm.Location = new System.Drawing.Point(0, 0);
+            //This was breaking the displayed width of the object
+            //container.Dock = System.Windows.Forms.DockStyle.Fill;
+            //parent.Location = new System.Drawing.Point(0, 0);
             container.Name = "tab1Item" + index;
-            container.Size = new System.Drawing.Size(parent.Width - 15, 125);
+            container.Size = new System.Drawing.Size(parent.Width - 20, 132);
+            container.BackColor = System.Drawing.Color.Blue;
+            //Spacing bug is not from a margin.
+            //container.Margin = new Padding(5,5,5,5);
             parent.Controls.Add(container);
 
             textBox = new RichTextBox() { Text = Text + index, Height = 90, Width = 430, Parent = container };
             container.Controls.Add(textBox);
-            deleteBTN = new Button() { Parent = container, Text = "Delete"};
+            deleteBTN = new Button() { Parent = container, Text = "Delete", Height = 30, TextAlign = ContentAlignment.MiddleCenter};
             container.Controls.Add(deleteBTN);
-            SetStyle(ControlStyles.ResizeRedraw, true);
+            //SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
     }
