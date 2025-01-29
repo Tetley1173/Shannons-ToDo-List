@@ -3,6 +3,9 @@
 ## Guide for formatting this document:
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
+### (and a good starting point if I want to learn how to add unit testing):
+https://stackoverflow.com/questions/3258733/new-to-unit-testing-how-to-write-great-tests
+
 ## Purpose of this Project
 To learn how to make apps using c# and windows forms. The end goal is to have a to do list app that will store my list as well as open on windows startup. I would like to become faster at coding through this project and to learn better ways to test my projects. Also I need to learn how to best use README.md files.
 
