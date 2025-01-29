@@ -16,6 +16,6 @@ Create a to do app that can store a list of things that need to be done. The lis
 The app is able to dynamically add a list of rich text boxes and a button for each of them so they can be deleted. Both UI elements do not have functionality yet.
 
 ## Things to get done:
-1- I've decided to use SQLite because it is portable (as per requirements) and is compatible with any sytem that can run the .Net framework (Document all this properly befor deleting this comment). This means step one is getting the database set up and then implementing the code to interface with it. \
+1- I've decided to use SQLite because it is portable (as per requirements) and is compatible with any sytem that can run the .Net framework (Document all this properly befor deleting this comment). This means step one is getting the database set up and then implementing the code to interface with it. Tutorial to follow: https://www.youtube.com/watch?v=ayp3tHEkRc0 \
 2- Do a basic tidy up of the UI, change the colours back from their test colours, fix button sizing.\
 3- Creat a class that handles the dynamic inclusion of new tabs as I will need at least 3 tabs with different lists in them on demand. This could potentially be hard coded at 3 but I think a dynamic system is a good coding challenge and learning opportunity.\
