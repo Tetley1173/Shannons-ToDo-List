@@ -36,6 +36,7 @@
             tabPage2 = new TabPage();
             btnHelloButton = new Button();
             lblHelloLabel = new Label();
+            saveListTab1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(saveListTab1);
             tabPage1.Controls.Add(buttonRemoveListTab1);
             tabPage1.Controls.Add(buttonAddListTab1);
             tabPage1.Controls.Add(flowLayoutPanelTab1);
@@ -128,6 +130,15 @@
             lblHelloLabel.TabIndex = 2;
             lblHelloLabel.Text = "Hello World";
             // 
+            // saveListTab1
+            // 
+            saveListTab1.Location = new Point(231, 16);
+            saveListTab1.Name = "saveListTab1";
+            saveListTab1.Size = new Size(94, 29);
+            saveListTab1.TabIndex = 10;
+            saveListTab1.Text = "Save List";
+            saveListTab1.UseVisualStyleBackColor = true;
+            // 
             // ToDoForm1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -152,5 +163,6 @@
         private Button buttonAddListTab1;
         private Button buttonRemoveListTab1;
         private FlowLayoutPanel flowLayoutPanelTab1;
+        private Button saveListTab1;
     }
 }
