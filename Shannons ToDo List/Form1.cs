@@ -1,4 +1,5 @@
 using System;
+using System.DirectoryServices;
 using System.Dynamic;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace Shannons_ToDo_List
         //List<Control> toDoItems = new List<Control>();
         private void buttonAddListTab1_Click(object sender, EventArgs e)
         {
-            ToDoItem item = new ToDoItem(flowLayoutPanelTab1.Controls.Count, "", flowLayoutPanelTab1, deleteListItem_click);
+            ToDoItem item = new ToDoItem(flowLayoutPanelTab1.Controls.Count, "", flowLayoutPanelTab1, deleteListItem_click!);
             //toDoItems.Add(item);
         }
 
@@ -38,29 +39,37 @@ namespace Shannons_ToDo_List
 
         private void deleteListItem_click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            ToDoItem item = btn.Parent as ToDoItem;
-            int test = item.ItemIndex;
+            //What should I do about the nullable warning? Maybe a try catch?
+            Button? btn = sender as Button;
+            ToDoItem? item = btn.Parent as ToDoItem;
 
-            // Do something here
             flowLayoutPanelTab1.Controls.Remove(btn.Parent);
-            //toDoItems.IndexOf(item.Parent);
-            //toDoItems.RemoveAt(item.ItemIndex);
+
+            foreach(ToDoItem items in flowLayoutPanelTab1.Controls)
+            {
+                int workingIndex = flowLayoutPanelTab1.Controls.IndexOf(items);
+                items.ItemIndex = workingIndex;
+                
+                //Check if ok to overide text then do so. May need to rerender.
+                if (items.TextBox.Text.StartsWith("List item: "))
+                {
+                    items.ToDoText = "List item: " + workingIndex;
+                    items.TextBox.Text = items.ToDoText;
+                    Console.WriteLine(items.ToDoText);
+                }
+
+               
+            }
         }
     }
 
-    //Class that creates objects containing buttons and text boxes needed to create each item in a list.
-    //It also adds itself to its parent control.
-    //This is a Composite Control, info on how to make this is here:
-    //https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/windows-forms-control-development-basics?view=netframeworkdesktop-4.8
-    //https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-author-composite-controls?view=netframeworkdesktop-4.8
+    //An extension of the FlowlayoutPanel class that populates the panel with child controls that represent an item on the to do list.
     class ToDoItem : FlowLayoutPanel
     {
         private int itemIndex;
         private int tab;
         private string? toDoText;
         private Button deleteBTN;
-        //private FlowLayoutPanel container;
         private RichTextBox textBox;
         
 
@@ -79,6 +88,13 @@ namespace Shannons_ToDo_List
             get;
             set;
         }
+
+        public RichTextBox TextBox 
+        { 
+            get {  return textBox; } 
+            set { textBox = value; } 
+        }
+
 
         public ToDoItem(int position, string inPutText, FlowLayoutPanel parent, EventHandler passedEvent)
         {
@@ -99,7 +115,6 @@ namespace Shannons_ToDo_List
 
             //Create UI elements
             //Style UI here
-            //container = new FlowLayoutPanel(); 
             this.Name = "tab1Item" + position;
             this.Size = new System.Drawing.Size(parent.Width - 20, 132);
             this.BackColor = System.Drawing.Color.Blue;
