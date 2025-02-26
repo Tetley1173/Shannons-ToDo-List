@@ -1,3 +1,5 @@
+using System;
+using System.Dynamic;
 using System.Windows.Forms;
 
 namespace Shannons_ToDo_List
@@ -20,20 +22,30 @@ namespace Shannons_ToDo_List
 
 
         string[] tab1List;
-        //Refactor to use the toDoItems list once its implemented.
-        int listCount = 0;
-        List<ToDoItem> toDoItems = new List<ToDoItem>();
+        //List<Control> toDoItems = new List<Control>();
         private void buttonAddListTab1_Click(object sender, EventArgs e)
         {
-            toDoItems.Add(new ToDoItem(toDoItems.Count(), "", flowLayoutPanelTab1));
-            listCount++;
+            ToDoItem item = new ToDoItem(flowLayoutPanelTab1.Controls.Count, "", flowLayoutPanelTab1, deleteListItem_click);
+            //toDoItems.Add(item);
         }
 
         private void buttonRemoveListTab1_Click(object sender, EventArgs e)
         {
             flowLayoutPanelTab1.Controls.Clear();
-            toDoItems.Clear();
-            listCount = 0;
+            //toDoItems.Clear();
+            //listCount = 0;
+        }
+
+        private void deleteListItem_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            ToDoItem item = btn.Parent as ToDoItem;
+            int test = item.ItemIndex;
+
+            // Do something here
+            flowLayoutPanelTab1.Controls.Remove(btn.Parent);
+            //toDoItems.IndexOf(item.Parent);
+            //toDoItems.RemoveAt(item.ItemIndex);
         }
     }
 
@@ -42,17 +54,17 @@ namespace Shannons_ToDo_List
     //This is a Composite Control, info on how to make this is here:
     //https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/windows-forms-control-development-basics?view=netframeworkdesktop-4.8
     //https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-author-composite-controls?view=netframeworkdesktop-4.8
-    class ToDoItem : UserControl
+    class ToDoItem : FlowLayoutPanel
     {
-        private int index;
+        private int itemIndex;
         private int tab;
-        private string toDoText;
+        private string? toDoText;
         private Button deleteBTN;
-        private FlowLayoutPanel container;
+        //private FlowLayoutPanel container;
         private RichTextBox textBox;
         
 
-        public int Index
+        public int ItemIndex
         {
             get;
             set;
@@ -68,32 +80,37 @@ namespace Shannons_ToDo_List
             set;
         }
 
-        public ToDoItem(int index, string inText, FlowLayoutPanel parent)
+        public ToDoItem(int position, string inPutText, FlowLayoutPanel parent, EventHandler passedEvent)
         {
             
             //Set text content
-            if (inText == "")
+            if (inPutText == "")
             {
                 ToDoText = "List item: ";
             }
             else
             {
-                ToDoText = inText;
-            }            
+                ToDoText = inPutText;
+            }          
+            
+            ItemIndex = position;
+
+            //Tab = tabPosition;
+
             //Create UI elements
             //Style UI here
-            FlowLayoutPanel container = new FlowLayoutPanel(); 
-            container.Name = "tab1Item" + index;
-            container.Size = new System.Drawing.Size(parent.Width - 20, 132);
-            container.BackColor = System.Drawing.Color.Blue;
-            parent.Controls.Add(container);
+            //container = new FlowLayoutPanel(); 
+            this.Name = "tab1Item" + position;
+            this.Size = new System.Drawing.Size(parent.Width - 20, 132);
+            this.BackColor = System.Drawing.Color.Blue;
+            parent.Controls.Add(this);
 
-            textBox = new RichTextBox() { Text = ToDoText + index, Height = 90, Width = 430, Parent = container };
-            container.Controls.Add(textBox);
-            deleteBTN = new Button() { Parent = container, Text = "Delete", Height = 30, TextAlign = ContentAlignment.MiddleCenter};
-            container.Controls.Add(deleteBTN);
+            textBox = new RichTextBox() { Text = ToDoText + position, Height = 90, Width = 430, Parent = this };
+            this.Controls.Add(textBox);
+            deleteBTN = new Button() { Parent = this, Text = "Delete", Height = 30, TextAlign = ContentAlignment.MiddleCenter};
+            this.Controls.Add(deleteBTN);
+            deleteBTN.Click += new EventHandler(passedEvent);
         }
-
     }
 
 }
